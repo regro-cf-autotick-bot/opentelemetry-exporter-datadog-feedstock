@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-exporter-datadog" %}
-{% set version = "0.27b0" %}
+{% set version = "0.28b0" %}
 
 # Common to all opentelemetry python libraries
 {% set preoffset = 20 %}
@@ -15,7 +15,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry-exporter-datadog-{{ version }}.tar.gz
-  sha256: 74b1897a17ecf93968650f7051e309368a97a9536af3912febbae9e572f98512
+  sha256: 102e6017eda309ef8698fabbe7ef0fed45627adc0674ce44224d31b19e810744
 
 build:
   number: 0
@@ -30,7 +30,7 @@ requirements:
     - ddtrace <0.47.0,>=0.34.0
     - opentelemetry-api ~=1.3
     - opentelemetry-sdk ~=1.3
-    - opentelemetry-semantic-conventions ==0.27b0
+    - opentelemetry-semantic-conventions ==0.28b0
     - python >=3.6
 
 test:
