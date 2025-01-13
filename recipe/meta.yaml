@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry-exporter-datadog-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentelemetry-exporter-datadog-{{ version }}.tar.gz
   sha256: 841e315d3812518b8fe7301d5aadf2c9e864844aa62629c595df63c21c0cb6b8
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - hatchling
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - ddtrace >=0.34.0,<0.47.0
     - opentelemetry-api >=1.3,<2.dev0
     - opentelemetry-sdk >=1.3,<2.dev0
@@ -34,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/exporter/opentelemetry-exporter-datadog
